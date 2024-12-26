@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const subCategoryOptions = {
   Access: [
@@ -48,6 +49,7 @@ const subCategoryOptions = {
 };
 
 const Ticket = () => {
+  const location = useLocation();
   const API_KEY = "AIzaSyAmq2tfFItL34vpdLWEze1b1mWILmWDjGc"
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
@@ -60,7 +62,7 @@ const Ticket = () => {
     setSubCategory(""); // Reset sub-category when category changes
   };
 
-  const generateResponse = async () => {
+  const generateResponse = async (text) => {
     try {
       const response = await fetch(API_URL, {
         method: "POST",
@@ -69,7 +71,12 @@ const Ticket = () => {
         },
         body: JSON.stringify({
           contents: [{
-              parts:[{text: "Explain how AI works"}]
+              parts:[{text: `Create a ticket based on this conversation. The ticket MUST follow this template: 
+                Description: 
+                Troubleshooting steps performed:
+                
+                If the issue was resolved add a the end "Issue resolved". If the issue was not resolved add "Escalating ticket for further assistance".
+                ${text}`}]
           }]
         })
       });
@@ -82,8 +89,10 @@ const Ticket = () => {
   }
 
   useEffect(() => {
-    generateResponse();
-  }, []); // El array vacío asegura que el efecto se ejecute solo una vez cuando el componente se monta
+    if (location.state && location.state.text) {
+      generateResponse(location.state.text);
+    }
+  }, [location.state]); // Ejecutar el efecto cuando location.state cambie
 
   return (
     <div className="container-fluid mt-5">
