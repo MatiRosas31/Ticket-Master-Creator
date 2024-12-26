@@ -10,7 +10,7 @@ export const Navbar = () => {
 					<span className="navbar-brand mb-0 h1 fw-bolder">Chat Ticket Generator</span>
 				</Link>
 				<div className="ml-auto">
-					<Link to="/demo">
+					<Link to="/">
 						<button className="btn1 btn-violet">Home</button>
 					</Link>
 				</div>

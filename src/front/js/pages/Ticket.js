@@ -75,7 +75,32 @@ const Ticket = () => {
                 Description: 
                 Troubleshooting steps performed:
                 
-                If the issue was resolved add a the end "Issue resolved". If the issue was not resolved add "Escalating ticket for further assistance".
+                If the issue was resolved add a the end "Issue resolved". If the issue was not resolved add "Escalating ticket for further".
+                ${text}`}]
+          }]
+        })
+      });
+      const data = await response.json();
+      const trimmedData = data.candidates[0].content.parts[0].text.trim();
+      setDescription(trimmedData); // Establecer el valor de trimmedData en el estado description
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  const generateShortDescription = async (text) => {
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          contents: [{
+              parts:[{text: `Create a ticket based on this conversation. The ticket MUST follow this template: 
+                Description: 
+                Troubleshooting steps performed:
+                
+                If the issue was resolved add a the end "Issue resolved". If the issue was not resolved add "Escalating ticket for further".
                 ${text}`}]
           }]
         })
@@ -147,12 +172,12 @@ const Ticket = () => {
             </div>
             <div className="col-12 col-lg-6 mb-5">
               <div className="mb-3">
-                <label htmlFor="incidentTitle" className="form-label">Incident Title</label>
-                <input type="text" className="form-control" id="incidentTitle" placeholder="Enter incident title" />
+                <label htmlFor="incidentTitle" className="form-label">Short Description</label>
+                <input type="text" className="form-control" id="shortDescription" placeholder="Enter a short Description" />
               </div>
               <div className="mb-3">
                 <label htmlFor="incidentDescription" className="form-label">Description</label>
-                <textarea className="form-control" id="incidentDescription" rows="4" placeholder="Describe the incident" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                <textarea className="form-control" id="incidentDescription" rows="4" placeholder="Wait a few moments while data is being loaded...✨" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
               </div>
             </div>
           </div>
