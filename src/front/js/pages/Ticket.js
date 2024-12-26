@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const subCategoryOptions = {
   Access: [
@@ -48,13 +48,42 @@ const subCategoryOptions = {
 };
 
 const Ticket = () => {
+  const API_KEY = "AIzaSyAmq2tfFItL34vpdLWEze1b1mWILmWDjGc"
+  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
   const [category, setCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
+  const [description, setDescription] = useState(""); // Estado para almacenar la descripción
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
     setSubCategory(""); // Reset sub-category when category changes
   };
+
+  const generateResponse = async () => {
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          contents: [{
+              parts:[{text: "Explain how AI works"}]
+          }]
+        })
+      });
+      const data = await response.json();
+      const trimmedData = data.candidates[0].content.parts[0].text.trim();
+      setDescription(trimmedData); // Establecer el valor de trimmedData en el estado description
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    generateResponse();
+  }, []); // El array vacío asegura que el efecto se ejecute solo una vez cuando el componente se monta
 
   return (
     <div className="container-fluid mt-5">
@@ -114,12 +143,9 @@ const Ticket = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="incidentDescription" className="form-label">Description</label>
-                <textarea className="form-control" id="incidentDescription" rows="4" placeholder="Describe the incident"></textarea>
+                <textarea className="form-control" id="incidentDescription" rows="4" placeholder="Describe the incident" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
               </div>
             </div>
-          </div>
-          <div className="d-flex justify-content-end">
-            <button type="submit" className="btn btn-primary">Submit</button>
           </div>
         </form>
       </div>
