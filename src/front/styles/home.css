@@ -5,13 +5,28 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
-  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  /* background: linear-gradient(to bottom, #f8f9fa, #e9ecef); */
   height: 100vh;
   margin: 0;
   /* display: flex;
   justify-content: center;
   align-items: center; */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  flex: 1;
 }
 
 .containerhome {

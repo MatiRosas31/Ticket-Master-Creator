@@ -10,7 +10,6 @@ import injectContext from "./store/appContext";
 
 import LandingPage from "./pages/landing";
 import  Ticket  from "./pages/ticket";
-
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -23,7 +22,7 @@ const Layout = () => {
     if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
 
     return (
-        <div>
+        <div id="root">
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <Navbar />

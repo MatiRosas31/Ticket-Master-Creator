@@ -1,9 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import frontimg from "../../img/imgfrontlanding.jpg"
 import profilePic from "../../img/fakepic.jpg"
 const LandingPage = () => {
+    const navigate = useNavigate();
+
     return (
+        <div>
         <div className="container-fluid p-5 bg-light text-dark">
             <div className="row align-items-center">
                 <div className="col-md-6">
@@ -11,7 +15,7 @@ const LandingPage = () => {
                     <p className="lead">
                         TicketMaster leverages AI to transform chat conversations into concise tickets, streamlining your ticket creation process.
                     </p>
-                    <button className="btn btn-primary btn-lg">Get Started</button>
+                    <button className="btn1 btn-violet btn-lg" onClick={()=>{navigate("/")}}>Get Started</button>
                     <div className="mt-4 d-flex align-items-center">
                         <img 
                             src={profilePic} 
@@ -35,7 +39,76 @@ const LandingPage = () => {
                 </div>
             </div>
         </div>
+        {/*How Ticket Master Works*/}
+        <div className="container flex text-center">
+        <h1 className='display-5'>How TicketMaster Works</h1>
+        <p>Revolutionize your ticket generation with TicketMaster</p>
+        <div className="row">
+          <div className="col-md-3 mb-5">
+            <div className="card h-100">
+              <div className="card-body">
+                <h2 className="card-title fw-bold">1</h2>
+                <h5 className="card-text fw-bolder mt-2">Paste Your Conversation</h5>
+                <p className="card-text py-4">Easily paste a chat conversation into TicketMaster to start generating your ticket.</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-3 mb-5">
+            <div className="card h-100">
+              <div className="card-body">
+                <h2 className="card-title fw-bold">2</h2>
+                <h5 className="card-text fw-bolder mt-2">AI Ticket Generation</h5>
+                <p className="card-text py-4">Let our AI work its magic to create a professional ticket based on your conversation.</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-3 mb-5" >
+            <div className="card h-100">
+              <div className="card-body">
+                <h2 className="card-title fw-bold">3</h2>
+                <h5 className="card-text fw-bolder mt-2">Customize Your Ticket</h5>
+                <p className="card-text py-4">Review and customize the generated ticket to fit your specific needs before finalizing.</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-3 mb-5">
+            <div className="card h-100">
+              <div className="card-body">
+                <h2 className="card-title fw-bold">4</h2>
+                <h5 className="card-text fw-bolder mt-2">Share Your Ticket</h5>
+                <p className="card-text py-4">Easily share your professionally generated ticket with others through various platforms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     );
 };
 
 export default LandingPage;
+
+
+    
+    //     {/*Transform Your Ticket Creation Process*/}
+    //     <div className="container text-center">
+    //   <h1>Transform Your Ticket Creation Process</h1>
+    //   <p>TicketMaster streamlines ticket generation from your chat conversations.</p>
+    //   <div className="row">
+    //     <div className="col-md-12">
+    //       <div className="card">
+    //         <div className="card-body">
+    //           <h3 className="card-title">Easily paste chat conversations for instant ticket creation</h3>
+    //           <h5 className="card-text">Customize your ticket details for clarity and precision</h5>
+    //           <h5 className="card-text">Collaborate with your team in a user-friendly interface</h5>
+    //           <h5 className="card-text">Keep your ticketing process efficient and organized</h5>
+    //           <button className="btn btn-primary mt-3">Get Started for Free!</button>
+    //           <blockquote className="blockquote mt-3">
+    //             <p className="mb-0">"TicketMaster has changed how we create tickets! It's fast and effective!"</p>
+    //             <footer className="blockquote-footer">Sarah Davis <cite title="Source Title">Support Lead at Tech Innovations</cite></footer>
+    //           </blockquote>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>

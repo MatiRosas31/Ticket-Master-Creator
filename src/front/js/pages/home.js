@@ -23,7 +23,7 @@ export const Home = () => {
     };
 
     return (
-        <div className="containerhome d-flex">
+        <div className="containerhome bg-light d-flex mt-5">
             <div className="cardhome p-4 shadow" style={{ width: '40rem' }}>
                 <h5 className="card-title d-flex align-items-center mb-3 fw-bolder">
                     <i className="bi bi-chat-right-dots me-2"></i>
