@@ -112,3 +112,8 @@ body {
   border-color: rgb(58, 37, 177);
   color: white;
 }
+
+#jumbotron {
+ background: linear-gradient(to bottom, #f8f9fa, #E7ECF2);
+  /* background-color: #E7ECF2; */
+}

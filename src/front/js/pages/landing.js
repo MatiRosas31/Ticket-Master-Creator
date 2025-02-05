@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import frontimg from "../../img/imgfrontlanding.jpg"
 import profilePic from "../../img/fakepic.jpg"
+import simplifyimg from "../../img/simplifyimg.jpg"
+import transformimg from "../../img/transformimg.jpg"
 const LandingPage = () => {
     const navigate = useNavigate();
 
     return (
         <div>
-        <div className="container-fluid p-5 bg-light text-dark">
+        <div id='jumbotron' className="container-fluid p-5 bg-light text-dark">
             <div className="row align-items-center">
                 <div className="col-md-6">
                     <h1 className="display-4 fw-bold">Create Tickets Effortlessly</h1>
@@ -82,6 +84,51 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+      <div className="container py-5">
+      <div className="row mb-5 align-items-center">
+        <div className="col-md-6">
+          <img src={transformimg} alt="AI Bot" className="img-fluid" />
+        </div>
+        <div className="col-md-6">
+          <h1 className="fw-bold">Transform Your Ticket Creation Process</h1>
+          <p>TicketMaster streamlines ticket generation from your chat conversations.</p>
+          <ul>
+            <li>Easily paste chat conversations for instant ticket creation</li>
+            <li>Customize your ticket details for clarity and precision</li>
+            <li>Collaborate with your team in a user-friendly interface</li>
+            <li>Keep your ticketing process efficient and organized</li>
+          </ul>
+          <button className="btn1 btn-violet">Get Started for Free!</button>
+          <blockquote className="mt-3">
+            <p><em>"TicketMaster has changed how we create tickets! It's fast and effective!"</em></p>
+            <footer>- <strong>Sarah Davis</strong> (Support Lead at Tech Innovations)</footer>
+          </blockquote>
+        </div>
+      </div>
+
+      <div className="row align-items-center">
+        <div className="col-md-6">
+          <h2 className="fw-bold">Simplify Your Ticket Creation with TicketMaster</h2>
+          <p>
+            Effortlessly generate tickets from chat conversations with our intelligent web app. Enjoy streamlined ticket management.
+          </p>
+          <ul>
+            <li>Paste chat conversations and let our AI create tickets</li>
+            <li>Customize ticket details as needed</li>
+            <li>Share tickets securely with your team</li>
+            <li>Ensure seamless support ticket handling and tracking</li>
+          </ul>
+          <button className="btn1 btn-violet">Start Your Free Trial!</button>
+          <blockquote className="mt-3">
+            <p><em>"TicketMaster has transformed our support process—fast, efficient, and reliable!"</em></p>
+            <footer>- <strong>Emily Johnson</strong> (Customer Support Manager at XYZ Corp)</footer>
+          </blockquote>
+        </div>
+        <div className="col-md-6">
+          <img src={simplifyimg} alt="Phone and Chat" className="img-fluid" />
+        </div>
+      </div>
+    </div>
     </div>
     );
 };
