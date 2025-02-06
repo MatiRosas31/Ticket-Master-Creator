@@ -23,14 +23,13 @@ export const Home = () => {
     };
 
     return (
-        <div className="containerhome bg-light d-flex mt-5">
+        <div className="containerhome d-flex my-auto">
             <div className="cardhome p-4 shadow" style={{ width: '40rem' }}>
-                <h5 className="card-title d-flex align-items-center mb-3 fw-bolder">
-                    <i className="bi bi-chat-right-dots me-2"></i>
+                <h5 className="display-3 fw-bold mb-4 gradient-text">
                     Convert Chat to Ticket
                 </h5>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
+                    <div className="mb-3 text-white">
                         <textarea 
                             className="form-control textarea-glow" 
                             rows="5" 
