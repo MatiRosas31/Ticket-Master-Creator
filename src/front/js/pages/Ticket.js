@@ -18,6 +18,9 @@ const Ticket = () => {
   const [satisfactionLevel, setSatisfactionLevel] = useState("");
 
 
+  
+
+
   const generateResponse = async (text) => {
     console.log("Este es el texto que le llega: ", text);
     try {

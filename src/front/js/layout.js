@@ -9,9 +9,10 @@ import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import LandingPage from "./pages/landing";
-import  Ticket  from "./pages/ticket";
+import  Ticket  from "./pages/Ticket";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import  Testing  from "./pages/testing";
 
 //create your first component
 const Layout = () => {
@@ -32,6 +33,7 @@ const Layout = () => {
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Ticket />} path="/ticket" />
                         <Route element={<Single />} path="/single/:theid" />
+                        <Route element={<Testing />} path="/testing" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

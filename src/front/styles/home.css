@@ -78,6 +78,20 @@ body {
   }
 }
 
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 61, 229, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(215, 15, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(174, 1, 255, 0.5);
+  }
+}
+
+
 .form-control::placeholder {
   color: #aa9c9c;
 }
@@ -102,13 +116,20 @@ body {
   border-color: rgb(58, 37, 177);
   color: white;
   border-radius: 5px;
+  align-items: center;
 }
-
+/*Seguir toqueteando el glowing efect the ese boton cuando se hace hover ver los colore*/
 .btn-violet:hover {
   background-color: rgb(58, 37, 177);
   border-color: rgb(58, 37, 177);
   color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(180, 133, 241); /* Thin white border */
+  box-shadow: 0 0 8px rgba(225, 0, 255, 0.459); /* Glowing effect */
+  transition: box-shadow 0.1s ease-in-out; /* Smooth transition for the glowing effect */
+  animation: pulse-glow 1s infinite; 
 }
+
 
 .btn-violet:active {
   background-color: rgb(58, 37, 177);
