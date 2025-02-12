@@ -5,15 +5,18 @@ import frontimg from "../../img/imgfrontlanding.jpg"
 import profilePic from "../../img/fakepic.jpg"
 import simplifyimg from "../../img/simplifyimg.jpg"
 import transformimg from "../../img/transformimg.jpg"
+import TrueFocus from '../component/TrueFocus';
+
+
 const LandingPage = () => {
     const navigate = useNavigate();
-
     return (
         <div>
         <div id='jumbotron' className="container-fluid p-5 bg-light text-dark">
             <div className="row align-items-center">
                 <div className="col-md-6">
-                    <h1 className="display-4 fw-bold">Create Tickets Effortlessly</h1>
+                <TrueFocus/>
+                    <h2 className="display-5 fw-bold">Create Tickets Effortlessly</h2>
                     <p className="lead">
                         TicketMaster leverages AI to transform chat conversations into concise tickets, streamlining your ticket creation process.
                     </p>
