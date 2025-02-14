@@ -26,7 +26,7 @@ export const Home = () => {
         <div className="containerhome d-flex my-auto">
             <div className="cardhome p-4 shadow" style={{ width: '40rem' }}>
                 <h5 className="display-3 fw-bold mb-4 gradient-text">
-                    Convert Chat to Ticket
+                    Convert Chat to Ticket or NOT
                 </h5>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3 text-white">
